@@ -5,7 +5,6 @@ import CategoriesScreen from '../screens/CategoriesScreen'
 import ProductScreen from '../screens/ProductsScreen'
 import DetailsScreen from '../screens/DetailsScreen'
 
-import { COLORS } from '../constants/colors'
 
 const Stack = createNativeStackNavigator()
 
@@ -13,12 +12,12 @@ export default ShopNavigator = () => {
 
     return (
 
-        <NavigationContainer>
             <Stack.Navigator
                 initialRouteName='Categories'
                 screenOptions={{
-                    headerStyle: { backgroundColor: COLORS.primary },
-                    headerTintColor: COLORS.secondary,
+                  //  headerStyle: { backgroundColor: COLORS.primary },
+                    //headerTintColor: COLORS.secondary,
+                    headerShadowVisible:false,
                     headerTitleStyle: {
                         fontWeight: 'bold',
                     }
@@ -29,10 +28,11 @@ export default ShopNavigator = () => {
                 } />
                 <Stack.Screen name='Products' component={ProductScreen} 
                 options={({route}) => ({
-                    title:route.params.title
+                    title:route.params.title,
                 })}/>
-                <Stack.Screen name='Details' component={DetailsScreen} />
+                <Stack.Screen name='Details' component={DetailsScreen} options={({route}) => ({
+                    title:route.params.name,
+                })} />
             </Stack.Navigator>
-        </NavigationContainer>
-    )
+    ) 
 }
