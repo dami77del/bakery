@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-
+import Ionicons from '@expo/vector-icons/Ionicons'
 const CategoriesItem = ({ item, onSelected }) => {
     return (
         <View style={{...styles.categoriesItem, ...{backgroundColor:item.color}}}>
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent:'center',
         alignItems:"center", 
-        paddingLeft:15
+        paddingLeft:15,
+        flex: 1,
     },
     textContainer: {
         height: "100%",
